@@ -10,6 +10,7 @@ import createApiKey from "@/modules/apiKeys/createAPIKey";
 import deleteApiKey from "@/modules/apiKeys/deleteAPIKey";
 import getMyUserId from "@/modules/apiKeys/getMyUserId";
 import { TrackPageView, trackEvent } from "@/modules/analytics";
+import { localApiUrl } from "@/utils/localApiUrl";
 import { isCloudEnvironment } from "@/utils";
 
 function WarmingUpBadge() {
@@ -55,8 +56,6 @@ function CheckIcon() {
     </svg>
   );
 }
-
-const localApiUrl = process.env.NEXT_PUBLIC_LOCAL_API_URL || "http://localhost:8000";
 
 export default function ApiKeysPage() {
   const { cogniInstance, serviceUrl, isInitializing } = useCogniInstance();

@@ -22,10 +22,10 @@ services:
       # Allows the container to reach your local machine using "host.docker.internal" instead of "localhost"
       - "host.docker.internal:host-gateway"
     ports:
-      - 8000:8000
+      - 8005:8000
       - 5678:5678 # Debugger port
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8005/health"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -85,7 +85,7 @@ services:
     container_name: frontend
     restart: always
     environment:
-      - NEXT_PUBLIC_BACKEND_API_URL=${NEXT_PUBLIC_BACKEND_API_URL:-http://localhost:8000}
+      - NEXT_PUBLIC_LOCAL_API_URL=${NEXT_PUBLIC_LOCAL_API_URL:-http://localhost:8005}
       - NEXT_PUBLIC_IS_CLOUD_ENVIRONMENT=false
     profiles:
         - ui
@@ -96,7 +96,7 @@ services:
       - ./cognee-frontend/src:/app/src
       - ./cognee-frontend/public:/app/public
     ports:
-      - 3000:3000
+      - 3001:3000
       # - 9229:9229 # Debugging
     networks:
       - cognee-network

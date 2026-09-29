@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const localApiUrl = process.env.NEXT_PUBLIC_LOCAL_API_URL || "http://localhost:8000";
+import { localApiUrl } from "@/utils/localApiUrl";
 
 export async function GET(request: NextRequest) {
   const headers: Record<string, string> = {};

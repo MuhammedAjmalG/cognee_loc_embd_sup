@@ -663,6 +663,8 @@ def start_ui(
     env = os.environ.copy()
     env["HOST"] = "localhost"
     env["PORT"] = str(port)
+    if start_backend:
+        env["NEXT_PUBLIC_LOCAL_API_URL"] = f"http://localhost:{backend_port}"
     # The shared frontend defaults to cloud mode; this launcher always runs
     # against the local backend, so opt into local mode unless overridden.
     env.setdefault("NEXT_PUBLIC_IS_CLOUD_ENVIRONMENT", "false")

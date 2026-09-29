@@ -1,6 +1,5 @@
 import handleServerErrors from "@/utils/handleServerErrors";
-
-const localApiUrl = process.env.NEXT_PUBLIC_LOCAL_API_URL || "http://localhost:8000";
+import { localApiUrl } from "@/utils/localApiUrl";
 
 let apiKey: string | null = process.env.NEXT_PUBLIC_COGWIT_API_KEY || null;
 

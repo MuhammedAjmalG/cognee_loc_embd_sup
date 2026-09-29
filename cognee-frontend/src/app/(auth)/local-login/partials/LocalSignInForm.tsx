@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { localApiUrl } from "@/utils/localApiUrl";
 import { Flex, Text, Title, TextInput, PasswordInput, Button } from "@mantine/core";
-
-const localApiUrl = process.env.NEXT_PUBLIC_LOCAL_API_URL || "http://localhost:8000";
 
 const DEFAULT_EMAIL = "default_user@example.com";
 const DEFAULT_PASSWORD = "default_password";

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-
-const localApiUrl = process.env.NEXT_PUBLIC_LOCAL_API_URL || "http://localhost:8000";
+import { localApiUrl } from "@/utils/localApiUrl";
 
 export async function GET(request: Request) {
   // Call the local backend's logout endpoint to invalidate the session

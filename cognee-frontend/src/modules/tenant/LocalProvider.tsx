@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import { Tenant } from "./types";
 import { TenantContext, localInstance } from "./TenantContext";
+import { localApiUrl } from "@/utils/localApiUrl";
 import { tokens } from "@/ui/theme/tokens";
-
-const localApiUrl = process.env.NEXT_PUBLIC_LOCAL_API_URL || "http://localhost:8000";
 
 export function LocalProvider({ children }: { children: React.ReactNode }) {
   const [tenant, setTenant] = useState<Tenant | null>(null);
